@@ -11,6 +11,9 @@ challenge_tags = Table(
 
 
 class Challenge(Base):
+    """
+    Models the challenges table
+    """
     __tablename__ = 'challenges'
 
     challenge_id = Column(String, primary_key=True)
@@ -27,6 +30,9 @@ class Challenge(Base):
 
 
 class Tag(Base):
+    """
+    Models the tags table
+    """
     __tablename__ = 'tags'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
@@ -35,6 +41,9 @@ class Tag(Base):
 
 
 class Objective(Base):
+    """
+    Models the objectives table
+    """
     __tablename__ = 'objectives'
     id = Column(Integer, primary_key=True, autoincrement=True)
     challenge_id = Column(String, ForeignKey('challenges.challenge_id'), index=True)
@@ -42,6 +51,9 @@ class Objective(Base):
 
 
 class Hint(Base):
+    """
+    Models the hints table
+    """
     __tablename__ = 'hints'
     id = Column(Integer, primary_key=True, autoincrement=True)
     challenge_id = Column(String, ForeignKey('challenges.challenge_id'), index=True)
@@ -49,6 +61,9 @@ class Hint(Base):
 
 
 class Conversation(Base):
+    """
+    Models the conversations table
+    """
     __tablename__ = 'conversations'
     id = Column(String, primary_key=True)
     topic = Column(String, index=True)
@@ -60,6 +75,9 @@ class Conversation(Base):
 
 
 class Post(Base):
+    """
+    Models the posts table
+    """
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True, autoincrement=True)
     conversation_id = Column(String, ForeignKey('conversations.id'), index=True)
